@@ -189,10 +189,10 @@ public class Main2Activity extends AppCompatActivity {
                         TextView answer = (TextView)findViewById(R.id.Answer);
                         answer.setText("9");
                         if( hold_this[0] == 0) {
-                            hold_this[0] = 1;
+                            hold_this[0] = 9;
                         }
                         else{
-                            hold_this[1] = 1;
+                            hold_this[1] = 9;
                         }
 
                     }
@@ -207,10 +207,31 @@ public class Main2Activity extends AppCompatActivity {
 
                         TextView answer = (TextView)findViewById(R.id.Answer);
                         answer.setText("+");
-                        String operator = "+";
                         i = 1;
 
 
+                    }
+                }
+        );
+
+        Button div_button = findViewById(R.id.div);
+        div_button.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        TextView answer = (TextView) findViewById(R.id.Answer);
+                        answer.setText("/");
+                        i =3;
+                    }
+                }
+        );
+
+        Button mult_button = findViewById(R.id.mult);
+        mult_button.setOnClickListener(
+                new Button.OnClickListener() {
+                    public void onClick(View v) {
+                        TextView answer = (TextView) findViewById(R.id.Answer);
+                        answer.setText("*");
+                        i =4;
                     }
                 }
         );
@@ -219,12 +240,8 @@ public class Main2Activity extends AppCompatActivity {
         minus_button.setOnClickListener(
                 new Button.OnClickListener(){
                     public void onClick(View v){
-
-                    //    Boolean subtract = true;
-
                         TextView answer = (TextView)findViewById(R.id.Answer);
                         answer.setText("-");
-                        String operator = "-";
                         i = 2;
                     }
                 }
@@ -240,7 +257,7 @@ public class Main2Activity extends AppCompatActivity {
                         int first_num, operator, sec_num;
                         first_num = hold_this[0];
                         sec_num = hold_this[1];
-                        int sum,diff;
+                        int sum,diff, divide, mult;
 
                        if(i == 1) {
                            sum = first_num + sec_num;
@@ -253,6 +270,19 @@ public class Main2Activity extends AppCompatActivity {
                            String n = String.valueOf(diff);
                            answer.setText(n);
                            hold_this[0] = diff;
+                       }
+                       if(i ==3){
+                           divide = first_num / sec_num;
+                           String n = String.valueOf(divide);
+                           answer.setText(n);
+                           hold_this[0] = divide;
+                       }
+
+                       if(i==4){
+                           mult = first_num * sec_num;
+                           String n = String.valueOf(mult);
+                           answer.setText(n);
+                           hold_this[0] = mult;
                        }
                     }
                 }
