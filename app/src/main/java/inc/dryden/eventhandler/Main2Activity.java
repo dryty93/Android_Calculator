@@ -11,6 +11,8 @@ import java.util.List;
 
 public class Main2Activity extends AppCompatActivity {
 
+    int i = 0;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,9 +24,6 @@ public class Main2Activity extends AppCompatActivity {
 
 
 
-
-
-
         Button one_button = findViewById(R.id.one);
                 one_button.setOnClickListener(
                         new Button.OnClickListener(){
@@ -32,21 +31,18 @@ public class Main2Activity extends AppCompatActivity {
 
                                 TextView answer = (TextView)findViewById(R.id.Answer);
                                 answer.setText("1");
-                                hold_this[0] = 1;
-                                //if(hold_this.length == 0 )
-                                 //{
-                                   //  hold_this[0] = 1;
-                                //}
-
-                                //else
-                                //{
-                                  //  hold_this[1] = 1;
-                                //}
+                                if( hold_this[0] == 0) {
+                                    hold_this[0] = 1;
+                                }
+                                else{
+                                    hold_this[1] = 1;
+                                }
 
                             }
 
                             }
                 );
+
         Button two_button = findViewById(R.id.two);
         two_button.setOnClickListener(
                 new Button.OnClickListener(){
@@ -54,7 +50,12 @@ public class Main2Activity extends AppCompatActivity {
 
                         TextView answer = (TextView)findViewById(R.id.Answer);
                         answer.setText("2");
-                        hold_this[1] = 2;
+                        if( hold_this[0] == 0) {
+                            hold_this[0] = 2;
+                        }
+                        else{
+                            hold_this[1] = 2;
+                        }
 
                     }
 
@@ -68,7 +69,12 @@ public class Main2Activity extends AppCompatActivity {
 
                         TextView answer = (TextView)findViewById(R.id.Answer);
                         answer.setText("3");
-                        hold_this[1] = 3;
+                        if( hold_this[0] == 0) {
+                            hold_this[0] = 3;
+                        }
+                        else{
+                            hold_this[1] = 3;
+                        }
 
                     }
 
@@ -82,7 +88,12 @@ public class Main2Activity extends AppCompatActivity {
 
                         TextView answer = (TextView)findViewById(R.id.Answer);
                         answer.setText("4");
-                        hold_this[1] = 4;
+                        if( hold_this[0] == 0) {
+                            hold_this[0] = 4;
+                        }
+                        else{
+                            hold_this[1] = 4;
+                        }
 
                     }
 
@@ -96,7 +107,12 @@ public class Main2Activity extends AppCompatActivity {
 
                         TextView answer = (TextView)findViewById(R.id.Answer);
                         answer.setText("5");
-                        hold_this[1] = 5;
+                        if( hold_this[0] == 0) {
+                            hold_this[0] = 5;
+                        }
+                        else{
+                            hold_this[1] = 5;
+                        }
 
                     }
 
@@ -110,7 +126,12 @@ public class Main2Activity extends AppCompatActivity {
 
                         TextView answer = (TextView)findViewById(R.id.Answer);
                         answer.setText("6");
-                        hold_this[1] = 6;
+                        if( hold_this[0] == 0) {
+                            hold_this[0] = 6;
+                        }
+                        else{
+                            hold_this[1] = 6;
+                        }
 
                     }
 
@@ -118,14 +139,24 @@ public class Main2Activity extends AppCompatActivity {
         );
 
         Button seven_button = findViewById(R.id.seven);
+
         seven_button.setOnClickListener(
                 new Button.OnClickListener(){
+                    Integer n = 0;
+
                     public void onClick(View v){
 
-                        TextView answer = (TextView)findViewById(R.id.Answer);
-                        answer.setText("7");
-                        hold_this[1] = 7;
+                        n = n +1;
 
+                        TextView answer = (TextView)findViewById(R.id.Answer);
+
+                        answer.setText("7");
+                        if( hold_this[0] == 0) {
+                            hold_this[0] = 7;
+                        }
+                        else{
+                            hold_this[1] = 7;
+                        }
                     }
 
                 }
@@ -138,7 +169,12 @@ public class Main2Activity extends AppCompatActivity {
 
                         TextView answer = (TextView)findViewById(R.id.Answer);
                         answer.setText("8");
-                        hold_this[1] = 8;
+                        if( hold_this[0] == 0) {
+                            hold_this[0] = 8;
+                        }
+                        else{
+                            hold_this[1] = 8;
+                        }
 
                     }
 
@@ -152,7 +188,12 @@ public class Main2Activity extends AppCompatActivity {
 
                         TextView answer = (TextView)findViewById(R.id.Answer);
                         answer.setText("9");
-                        hold_this[1] = 9;
+                        if( hold_this[0] == 0) {
+                            hold_this[0] = 1;
+                        }
+                        else{
+                            hold_this[1] = 1;
+                        }
 
                     }
 
@@ -167,6 +208,24 @@ public class Main2Activity extends AppCompatActivity {
                         TextView answer = (TextView)findViewById(R.id.Answer);
                         answer.setText("+");
                         String operator = "+";
+                        i = 1;
+
+
+                    }
+                }
+        );
+
+        Button minus_button = findViewById(R.id.minus);
+        minus_button.setOnClickListener(
+                new Button.OnClickListener(){
+                    public void onClick(View v){
+
+                    //    Boolean subtract = true;
+
+                        TextView answer = (TextView)findViewById(R.id.Answer);
+                        answer.setText("-");
+                        String operator = "-";
+                        i = 2;
                     }
                 }
         );
@@ -180,16 +239,21 @@ public class Main2Activity extends AppCompatActivity {
                         //answer.setText("=");
                         int first_num, operator, sec_num;
                         first_num = hold_this[0];
-//                        operator = hold_this.indexOf(1);
                         sec_num = hold_this[1];
-                        //answer.setText(first_num);
-                        int sum;
+                        int sum,diff;
 
-                        sum = first_num + sec_num;
-                        String n = String.valueOf(sum);
-                        answer.setText(n);
-                        hold_this[0] = sum;
-
+                       if(i == 1) {
+                           sum = first_num + sec_num;
+                           String n = String.valueOf(sum);
+                           answer.setText(n);
+                           hold_this[0] = sum;
+                       }
+                       if(i ==2){
+                           diff = first_num - sec_num;
+                           String n = String.valueOf(diff);
+                           answer.setText(n);
+                           hold_this[0] = diff;
+                       }
                     }
                 }
         );
@@ -201,6 +265,10 @@ public class Main2Activity extends AppCompatActivity {
 
                         TextView answer = (TextView)findViewById(R.id.Answer);
                         answer.setText("");
+
+                        hold_this[0] = 0;
+                        hold_this[1] = 0;
+
 
                     }
 
